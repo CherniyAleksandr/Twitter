@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  max-width: 600px;
+  max-height: 1436px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.home {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 14px 0px 15px 16px;
+}
+.home-btn {
+  background-color: black;
+  border-style: none;
+  margin: 9px 16px 10px 0px;
+}
+
+.btns-container {
+  display: flex;
+  margin: 0px 14px 0px 66px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid grey;
+}
+
+.photo {
+  display: flex;
+  justify-content: flex-start;
+  color: Gray;
+  background-color: black;
+  border-style: none;
+  gap: 12px;
+  margin-bottom: 23px;
+}
+.photo > input {
+  background-color: black;
+  border-style: none;
+  width: 181px;
+  height: 24px;
+  margin: 20px 20px 20px 0px;
+}
+
+.photo > img {
+  margin: 4px 0px 0px 16px;
+}
+
+.btns {
+  background-color: black;
+  padding: 0.917px 1.917px 1px 0px;
+  align-items: center;
+  border-style: none;
+}
+
+.btnss {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.tweet {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 36px;
+  opacity: 0.5;
+  background: var(--Blue, #1d9bf0);
+  border-style: none;
+  margin: 0px 0px 0px 276px;
+}
+
+#root1 {
+  color: white;
+}
+
+#root1 > img {
+  width: 30px;
+  height: 30px;
+}
