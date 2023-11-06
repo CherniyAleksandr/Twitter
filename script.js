@@ -54,11 +54,35 @@ const showEachPosts = (arrayOfPosts) => {
                 const btn = document.createElement('button');
                 const btnInput = document.createElement('p');
                 const btnImg = document.createElement('img');
-                btnInput.innerText = '1'
+                
 
                 btnImg.src = iconsUrl[i % iconsUrl.length];
                 btn.append(btnImg);
                 divIcons.append(btn, btnInput);
+                
+                if (i === 1) {
+                    let likeCount = 0;
+                    btn.addEventListener('click', () => {
+                        likeCount++;
+                        btnInput.innerText = likeCount.toString();
+                    });
+    
+                }
+                if (i === 0) {
+                    let commentCount = 0;
+                    btn.addEventListener('click', () => {
+                        commentCount++;
+                        btnInput.innerText = commentCount.toString()
+                    })
+                }
+                if (i === 2) {
+                    let reTweet = 0;
+                    btn.addEventListener('click', () => {
+                        reTweet++;
+                        btnInput.innerText = reTweet.toString()
+                    })
+                }
+                
             }
 
             postsDiv.append(divIcons);
