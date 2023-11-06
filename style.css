@@ -22,6 +22,8 @@ body {
 
 button {
   cursor: pointer;
+    background: black;
+    border: none;
 }
 
 .header-home {
@@ -67,6 +69,7 @@ button {
   width: 181px;
   height: 24px;
   margin: 20px 20px 20px 0px;
+  color: white;
 }
 
 .photo > img {
@@ -106,3 +109,32 @@ button {
   width: 30px;
   height: 30px;
 }
+
+
+/* root1 */
+
+.post-wrapper {
+  display:flex;
+  gap: 29px;
+  margin-left: 18px;
+  margin-top: 15px;
+}
+
+.div-img {
+  margin-top:25px;
+  background: none;
+  border: none;
+}
+
+.div.text {
+  margin-top: 25px;
+}
+
+.icon-container {
+  display: flex;
+  gap: 50px;
+  margin-left: 50px;
+  margin-top:15px;
+  margin-bottom: 15px;
+}
+

@@ -54,6 +54,7 @@ const showEachPosts = (arrayOfPosts) => {
                 const btn = document.createElement('button');
                 const btnInput = document.createElement('p');
                 const btnImg = document.createElement('img');
+                btnInput.innerText = '1'
 
                 btnImg.src = iconsUrl[i % iconsUrl.length];
                 btn.append(btnImg);
@@ -69,3 +70,52 @@ const showEachPosts = (arrayOfPosts) => {
 
 fetchPosts(showEachPosts);
 
+
+// https://dummyjson.com/users/1 ++++ 
+// https://dummyjson.com/docs/posts ++++
+
+// По кнопке tweet добовлаем пост.
+
+const btnTweet = document.querySelector('.tweet');
+const inputWhatHappening = document.querySelector('.what-heppening');
+
+
+btnTweet.addEventListener('click', () => {
+    const postText = inputWhatHappening.value;
+
+    if (postText !== '') {
+        const newPost = document.createElement('div');
+        const postContent = document.createElement('p');
+        const postName = document.createElement('p')
+        
+
+        
+        postContent.textContent = postText;
+   
+
+
+        newPost.append(postContent);
+        root1.append(newPost);
+        inputWhatHappening.value = ''; 
+    }
+});
+
+// const fetchUrl = () => {
+//     fetch('https://dummyjson.com/users/1')
+//     .then(res => res.json())
+//     .then( data => data)
+// }
+
+
+// const fetchPostById = async () => {
+//     const response = await fetch('https://jsonplaceholder.typicode.com/posts/1')
+//     const data = await response.json()
+
+//     const postResponse = await fetch(
+//        `https://jsonplaceholder.typicode.com/posts/?userId=${data.userId}` 
+//     )
+//     const postData = await postResponse.json()
+//     console.log(postData)
+// }
+
+// fetchPostById()
