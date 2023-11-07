@@ -49,16 +49,19 @@ const showEachPosts = (arrayOfPosts) => {
         const makeDiv = () => {
             const divIcons = document.createElement('div');
             divIcons.classList = 'icon-container';
-
+            const divBorder = document.createElement('div')
+            divBorder.classList = 'border-bottom'
+            
             for (let i = 0; i < 4; i++) {
                 const btn = document.createElement('button');
                 const btnInput = document.createElement('p');
                 const btnImg = document.createElement('img');
                 
-
+                
                 btnImg.src = iconsUrl[i % iconsUrl.length];
                 btn.append(btnImg);
                 divIcons.append(btn, btnInput);
+                divBorder.append(divIcons);
                 
                 if (i === 1) {
                     let likeCount = 0;
@@ -85,7 +88,7 @@ const showEachPosts = (arrayOfPosts) => {
                 
             }
 
-            postsDiv.append(divIcons);
+            postsDiv.append(divIcons, divBorder);
         };
 
         makeDiv();
