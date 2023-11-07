@@ -117,12 +117,14 @@ btnTweet.addEventListener('click', () => {
         const newPost = document.createElement('div');
         const postContent = document.createElement('p');
         const postName = document.createElement('p')
+        postName.innerText = 'Hi'
 
         postContent.textContent = postText;
 
         newPost.append(postContent);
         root1.append(newPost);
         inputWhatHappening.value = '';
+
     }
 });
 
