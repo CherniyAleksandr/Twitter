@@ -46,7 +46,7 @@ const showEachPosts = (arrayOfPosts) => {
         postDiv.classList = 'post-wrapper';
         divText.classList = 'div-text';
         divImg.classList = 'div-img';
-        
+
 
         postH2.innerHTML = `${user.firstName +" "+ user.lastName}`;
         postP.innerHTML = `Title: ${posts.title}`;
