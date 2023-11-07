@@ -117,7 +117,7 @@ btnTweet.addEventListener('click', () => {
         const newPost = document.createElement('div');
         const postContent = document.createElement('p');
         const postName = document.createElement('p')
-        postName.innerText = "Yo"
+     
         postContent.textContent = postText;
         
 
