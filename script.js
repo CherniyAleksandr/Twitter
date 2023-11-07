@@ -15,15 +15,23 @@ const iconsUrl = [
 ]
 
 const fetchPosts = (callback) => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
+    fetch('https://dummyjson.com/posts')
+    .then(res => res.json())
+    .then(data => {
+        callback(data.posts)
+    })
+}
+
+const fetchUsers = (callback) => {
+    fetch('https://dummyjson.com/users')
         .then(res => res.json())
         .then(data => {
-            callback(data.slice(0, 4));
+            callback(data.users);
         });
 };
 
 const showEachPosts = (arrayOfPosts) => {
-    arrayOfPosts.forEach((post, index) => {
+    arrayOfPosts.forEach((user, index, posts) => {
         const divText = document.createElement('div');
         const divImg = document.createElement('div');
         const postDiv = document.createElement('div');
@@ -32,15 +40,17 @@ const showEachPosts = (arrayOfPosts) => {
         const postP = document.createElement('p');
         const img = document.createElement('img');
 
-        img.src = imgUrl[index % imgUrl.length];
+        // img.src = imgUrl[index % imgUrl.length];
+        img.setAttribute('src', user.image)
         divImg.append(img);
         postDiv.classList = 'post-wrapper';
         divText.classList = 'div-text';
         divImg.classList = 'div-img';
+        
 
-        postH2.innerHTML = `User ID: ${post.userId}`;
-        postP.innerHTML = `Title: ${post.title}`;
-        postNum.innerHTML = `Post ID: ${post.id}`;
+        postH2.innerHTML = `${user.firstName +" "+ user.lastName}`;
+        postP.innerHTML = `Title: ${posts.title}`;
+        postNum.innerHTML = `Post ID: ${posts.id}`;
 
         divText.append(postH2, postP, postNum);
         postDiv.append(divImg, divText);
@@ -51,25 +61,26 @@ const showEachPosts = (arrayOfPosts) => {
             divIcons.classList = 'icon-container';
             const divBorder = document.createElement('div')
             divBorder.classList = 'border-bottom'
-            
+
+
             for (let i = 0; i < 4; i++) {
                 const btn = document.createElement('button');
                 const btnInput = document.createElement('p');
                 const btnImg = document.createElement('img');
-                
-                
+
+
                 btnImg.src = iconsUrl[i % iconsUrl.length];
                 btn.append(btnImg);
                 divIcons.append(btn, btnInput);
                 divBorder.append(divIcons);
-                
+
                 if (i === 1) {
                     let likeCount = 0;
                     btn.addEventListener('click', () => {
                         likeCount++;
                         btnInput.innerText = likeCount.toString();
                     });
-    
+
                 }
                 if (i === 0) {
                     let commentCount = 0;
@@ -85,7 +96,7 @@ const showEachPosts = (arrayOfPosts) => {
                         btnInput.innerText = reTweet.toString()
                     })
                 }
-                
+
             }
 
             postsDiv.append(divIcons, divBorder);
@@ -95,6 +106,7 @@ const showEachPosts = (arrayOfPosts) => {
     });
 };
 
+fetchUsers(showEachPosts);
 fetchPosts(showEachPosts);
 
 
@@ -114,16 +126,16 @@ btnTweet.addEventListener('click', () => {
         const newPost = document.createElement('div');
         const postContent = document.createElement('p');
         const postName = document.createElement('p')
-        
 
-        
+
+
         postContent.textContent = postText;
-   
+
 
 
         newPost.append(postContent);
         root1.append(newPost);
-        inputWhatHappening.value = ''; 
+        inputWhatHappening.value = '';
     }
 });
 
@@ -139,10 +151,23 @@ btnTweet.addEventListener('click', () => {
 //     const data = await response.json()
 
 //     const postResponse = await fetch(
-//        `https://jsonplaceholder.typicode.com/posts/?userId=${data.userId}` 
+//        `https://jsonplaceholder.typicode.com/posts/?userId=${data.userId}`
 //     )
 //     const postData = await postResponse.json()
 //     console.log(postData)
 // }
 
 // fetchPostById()
+
+// const root = document.querySelector('#root')
+
+// let url = 'https://dummyjson.com/'
+
+// async function getUsersUrl() {
+//     let response = await fetch(url + '/users')
+//     let data = await response.json()
+//     console.log(data)
+//     render(data.users);
+// }
+
+// getUsersUrl()
