@@ -44,7 +44,7 @@ const showEachPosts = (posts, users) => {
         const postP = document.createElement('p');
         const img = document.createElement('img');
 
-        img.setAttribute('src', users[index].image); // Assuming 'image' property exists in users data
+        img.setAttribute('src', users[index].image); 
         divImg.append(img);
         postDiv.classList.add('post-wrapper');
         divText.classList.add('div-text');
@@ -117,9 +117,11 @@ btnTweet.addEventListener('click', () => {
         const newPost = document.createElement('div');
         const postContent = document.createElement('p');
         const postName = document.createElement('p')
-
+        postName.innerText = "Yo"
         postContent.textContent = postText;
+        
 
+        
         newPost.append(postContent);
         root1.append(newPost);
         inputWhatHappening.value = '';
