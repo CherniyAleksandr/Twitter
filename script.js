@@ -121,12 +121,14 @@ const inputWhatHappening = document.querySelector('.what-heppening');
 
 const postCreate = async () => {
     const usersData = await fetchUsers();
-    const avatar = document.querySelector('.avatar');
+    // const avatar = document.querySelector('.avatar');
+    const avatarDiv = document.querySelector('.photo')
+    const avatarImage = document.querySelector('.avatar');
     btnTweet.addEventListener('click', () => {
         const postText = inputWhatHappening.value;
 
         if (postText !== '') {
-            const userIdForPost = 5;
+            const userIdForPost = 12;
             const currentUser = usersData.users.find(user => user.id === userIdForPost);
            
             if (currentUser) {
@@ -145,14 +147,20 @@ const postCreate = async () => {
                 postId.innerText = `Post ID: ${currentUser.id}`;
 
                 userImage.classList.add('user-avatar');
-                avatar.innerHTML = ''
-                avatar.append(userImage)
+               
+                avatarImage.src = ''
+                avatarImage.src = currentUser.image;
+                // avatarImage.src = ''
+                // avatarImage.src = ''
+                
+
 
                 divTextWrapper.append(postName, postContent,postId)
                 newPost.append(userImage, divTextWrapper);
                 postsDiv.append(newPost);
                 inputWhatHappening.value = '';
                 makeDiv()
+                avatarDiv.prepend(avatarImage)
 
             } else {
                 console.log('Пользователь не найден');
