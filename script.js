@@ -151,6 +151,7 @@ const postCreate = async () => {
                 avatarImage.src = ''
                 avatarImage.src = currentUser.image;
                 // avatarImage.src = ''
+                // avatarImage.src = ''
                 
 
 
