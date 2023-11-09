@@ -1,5 +1,7 @@
 const postsDiv = document.querySelector('#root1');
 
+const makePull = document.querySelector('pull')
+
 
 const imgUrl = [
     './images/CNN.svg',
@@ -152,6 +154,7 @@ const postCreate = async () => {
                 avatarImage.src = currentUser.image;
                 // avatarImage.src = ''
                 // avatarImage.src = ''
+
                 
 
 
