@@ -1,8 +1,5 @@
 const postsDiv = document.querySelector('#root1');
 
-const makePull = document.querySelector('pull')
-
-
 const imgUrl = [
     './images/CNN.svg',
     './images/TheNewYork.svg',
@@ -27,9 +24,9 @@ const fetchUsers = () => {
         .then(res => res.json());
 };
 
-const avatarImg = () => {
+// const avatarImg = () => {
 
-}
+// }
 
 
 
@@ -76,7 +73,7 @@ const makeDiv = () => {
 
 Promise.all([fetchPosts(), fetchUsers()])
     .then(data => {
-        const posts = data[0].posts.slice(0, 2);
+        const posts = data[0].posts.slice(0, 4);
         const users = data[1].users;
         showEachPosts(posts, users);
         console.log(users);
@@ -130,7 +127,7 @@ const postCreate = async () => {
         const postText = inputWhatHappening.value;
 
         if (postText !== '') {
-            const userIdForPost = 12;
+            let userIdForPost = 2;
             const currentUser = usersData.users.find(user => user.id === userIdForPost);
            
             if (currentUser) {
@@ -152,12 +149,7 @@ const postCreate = async () => {
                
                 avatarImage.src = ''
                 avatarImage.src = currentUser.image;
-                // avatarImage.src = ''
-                // avatarImage.src = ''
-                 // avatarImage.src = ''
-
-                
-
+             
 
                 divTextWrapper.append(postName, postContent,postId)
                 newPost.append(userImage, divTextWrapper);
@@ -166,9 +158,20 @@ const postCreate = async () => {
                 makeDiv()
                 avatarDiv.prepend(avatarImage)
 
+                userImage.addEventListener('click', () => {
+                    window.location.href = './user.html';
+                })
+
+                avatarImage.addEventListener('click', () => {
+                     window.location.href = `./user.html`;
+                })
+
             } else {
                 console.log('Пользователь не найден');
             }
+
+
+            
         }
     });
 };
@@ -176,64 +179,6 @@ const postCreate = async () => {
 postCreate();
 
 
-// const btnTweet = document.querySelector('.tweet');
-// const inputWhatHappening = document.querySelector('.what-heppening');
-
-// const createForm = async (userId) => {
-//     const userData = await fetchUsers(); // Получить данные всех пользователей
-
-//     const user = userData.users.find(user => user.id === userId); // Найти пользователя по ID
-
-//     if (user) {
-//         const { id, image, username } = user;
-
-//         const userName = document.createElement('h2');
-//         userName.innerText = username;
-
-//         const userImage = document.createElement('img');
-//         userImage.src = image;
-
-//         btnTweet.addEventListener('click', async (event) => {
-//             event.preventDefault();
-
-//             const postData = {
-//                 body: inputWhatHappening.value,
-//                 userId: id
-//             };
-
-//             await addPost(postData); // Предполагается, что addPost отправляет данные на сервер для создания нового поста
-//             inputWhatHappening.value = '';
-//         });
-//     } else {
-//         console.log('Пользователь не найден'); // В случае, если пользователя с таким ID не существует
-//     }
-//     root1.append(userName,userImage,postData)
-// }
-
-// // Используйте функцию createForm, передав нужный ID пользователя
-// const userIdForPost = 5; // Замените на нужный вам ID пользователя
-// createForm(userIdForPost);
+// 1) добавляем на аватарку обработчик события, который позволяет перейти на страницу пользователя, где отображается информация о нем и все его посты
 
 
-
-// const btnTweet = document.querySelector('.tweet');
-// const inputWhatHappening = document.querySelector('.what-heppening');
-
-// const createForm = async () => {
-//     const {id,image,username} = await fetchUsers(1)
-//     const userName = document.createElement('h2')
-//     userName.innerText = username
-//     const userImage = document.createElement('img')
-//     userImage.src = image
-//     const inputWhatHappening = document.querySelector('.what-heppening');
-
-//     tweet.addEventListener('submit', (event) => {
-//         event.preventDefault()
-//         const dataObject = {
-//             body: inputWhatHappening.value,
-//             userId: id,
-//         }
-//         addPost(dataObject)
-//         inputWhatHappening.value = ' '
-//     })
-// }
