@@ -91,6 +91,7 @@ const showEachPosts = (posts, users) => {
         const postNum = document.createElement('p');
         const postP = document.createElement('p');
         const img = document.createElement('img');
+        img.classList = 'user-avatar'
 
         img.setAttribute('src', users[index].image);
         divImg.append(img);
