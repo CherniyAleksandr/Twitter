@@ -18,7 +18,7 @@
 
 const userPage = document.querySelector('#userPage')
 
-
+console.log(userPage);
 
 const fetchUserDataAndPosts = async (userId,callback) => {
     try {
@@ -62,11 +62,11 @@ fetchUserDataAndPosts(2, (firstName, email, posts) => {
         postsContainer.appendChild(postDiv);
     });
 
-   
-   userPage.append(emailP)
-   userPage.append(postsContainer)
+    userPage.append(firstNameH2)
+    userPage.append(emailP)
+    userPage.append(postsContainer)
 
   
 
-    console.log(posts);
+   
 });
